@@ -7,8 +7,6 @@
           <span>TimeLine</span>
           <!-- <el-header>TimeLine</el-header> -->
         </div>
-
-        <!-- 记住改字体颜色 -->
         <el-main>
           <div class="emailinput">
             <div class="labenemail">
