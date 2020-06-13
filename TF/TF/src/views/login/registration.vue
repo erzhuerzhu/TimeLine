@@ -1,61 +1,67 @@
 <template>
-  <div>
-    <div class="biggestdiv" >
-      <el-image :src="url"></el-image>
-      <div class="login">
-        <el-container>
-          <div class="websitenname">
-            <span>TimeLine</span>
-            <!-- <el-header>TimeLine</el-header> -->
+  <div class="biggestdiv">
+    <el-image :src="url"></el-image>
+    <div class="login">
+      <el-container>
+        <div class="websitenname">
+          <span>TimeLine</span>
+          <!-- <el-header>TimeLine</el-header> -->
+        </div>
+        <el-main>
+          <div class="emailinput">
+            <div class="labenemail">
+              <el-tag type="info">email</el-tag>
+            </div>
+            <el-input
+              placeholder="请输入邮箱"
+              suffix-icon="el-icon-message"
+              v-model="emailinput"
+            >
+            </el-input>
           </div>
-          <el-main>
-            <div class="emailinput">
-              <div class="labenemail">
-                <el-tag type="info">email</el-tag>
+          <div class="passwordinput">
+            <div class="labelpassword">
+              <div class="passwordtext">
+                <el-tag type="info">password</el-tag>
               </div>
-              <el-input
-                placeholder="请输入邮箱"
-                suffix-icon="el-icon-message"
-                v-model="emailinput"
-              >
-              </el-input>
-            </div>
-            <div class="passwordinput">
-              <div class="labelpassword">
-                <div class="passwordtext">
-                  <el-tag type="info">password</el-tag>
-                </div>
-                <div class="forgetpaswordtext">
+              <!-- <div class="forgetpaswordtext">
                   <el-link type="primary">forget password?</el-link>
-                </div>
-              </div>
-              <el-input
-                placeholder="请输入密码"
-                suffix-icon="el-icon-lock"
-                v-model="passwordinput"
-                show-password
-              >
-              </el-input>
+                </div> -->
             </div>
-            <div class="chooseeare">
-              <el-switch
-                v-model="value"
-                active-color="#13ce66"
-                inactive-color="#ccc4cc"
-                active-text="remember me"
+            <el-input
+              class="fristpassword"
+              placeholder="请输入密码"
+              suffix-icon="el-icon-lock"
+              v-model="passwordinput"
+              show-password
+            >
+            </el-input>
+            <el-input
+              placeholder="确认密码"
+              suffix-icon="el-icon-lock"
+              v-model="comfirmepassword"
+              show-password
+            >
+            </el-input>
+          </div>
+          <div class="chooseeare">
+            <el-switch
+              v-model="intellgentverify"
+              active-color="#13ce66"
+              inactive-color="#ccc4cc"
+              active-text="智能验证"
+            >
+            </el-switch>
+            <!-- <el-button round>sign in </el-button> -->
+            <regis-button msg="sign in" v-on:btnClick="signIn"></regis-button>
+            <div class="tosignin">
+              <el-link type="primary" v-on:click="toLogin"
+                >had an account? here to sign in</el-link
               >
-              </el-switch>
-              <!-- <el-button round>sign in </el-button> -->
-              <signin-button msg="sign in" v-on:btnClick="signIn"></signin-button>
-              <div class="createaccounttext">
-                <el-link type="primary" v-on:click='toRegister'
-                  >dont't have a account? create one here</el-link
-                >
-              </div>
             </div>
-          </el-main>
-        </el-container>
-      </div>
+          </div>
+        </el-main>
+      </el-container>
     </div>
   </div>
 </template>
@@ -64,7 +70,7 @@ import indexButton from "./button.vue";
 export default {
   name: "index",
   components: {
-    "signin-button": indexButton /*注册自定义标签*/
+    "regis-button": indexButton /*注册自定义标签*/
   },
   data() {
     return {
@@ -75,29 +81,30 @@ export default {
       url: require("@/assets/login/June.jpg"),
       emailinput: "",
       passwordinput: "",
-      value: true,
+      comfirmepassword: "",
+      intellgentverify: ""
     };
   },
   methods: {
     signIn: function() {
       alert("sign In successfully");
     },
-    toRegister:function(){
-      console.log("to registration");
-      this.$router.push({path:'/registration'});
-      
+
+    toLogin: function() {
+      this.$router.push({ path: "/" });
     }
   }
 };
 </script>
 <style scoped>
-.createaccounttext, .tosignin {
+.createaccounttext,
+.tosignin {
   text-align: center;
   border-top: 0.5px solid #dcdfe6;
   padding-top: 1%;
 }
-.fristpassword{
-  margin-bottom:5%;
+.fristpassword {
+  margin-bottom: 5%;
 }
 .el-switch {
   display: block;
@@ -175,7 +182,7 @@ export default {
 .labelpassword {
   margin-top: 5%;
 }
-.el-link{
-  text-align:center;
+.el-link {
+  text-align: center;
 }
 </style>
