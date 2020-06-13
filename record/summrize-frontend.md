@@ -1,4 +1,7 @@
-
+12. 
+11. 所有方法都应该在methods里定义，然后在created或者mounted里使用this调用方法实现初始化
+10. data props computed watch methods 生成顺序：props => methods =>data => computed => watch
+9. vue的生命周期：一个组件创建beforecreate，数据初始化created，挂载beforeMount，更新（beforeUpdate，update)，销毁(beforeDestory,destory),data的初始化是在created时已经完成数据观测(data observer)，并且诸如methods、computed属性 props等已经初始化
 8.  [Vue warn]: Do not use built-in or reserved HTML elements as component id: button 这个问题没解决掉，先不管了
 7. 使用this.$router.push({path: '/'})可以实现<li><router-link to="/">Vue页面</router-link></li>一样的能力。
 6. vue-router:核心是更新视图尾部重新请求页面：hash模式和history模式；

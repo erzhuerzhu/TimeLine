@@ -1,7 +1,8 @@
 <template>
   <div>
-    <div class="biggestdiv" >
-      <el-image :src="url"></el-image>
+    <div class="biggestdiv">
+      <!-- <el-image :src="url"></el-image> -->
+      <el-image v-bind:src="url"></el-image>
       <div class="login">
         <el-container>
           <div class="websitenname">
@@ -46,9 +47,12 @@
               >
               </el-switch>
               <!-- <el-button round>sign in </el-button> -->
-              <signin-button msg="sign in" v-on:btnClick="signIn"></signin-button>
+              <signin-button
+                msg="sign in"
+                v-on:btnClick="signIn"
+              ></signin-button>
               <div class="createaccounttext">
-                <el-link type="primary" v-on:click='toRegister'
+                <el-link type="primary" v-on:click="toRegister"
                   >dont't have a account? create one here</el-link
                 >
               </div>
@@ -72,32 +76,42 @@ export default {
       // "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
       // 这里就是加载图片，下面是本地加载，上面是用链接
       // url: require("@/assets/login/May.jpg"),
-      url: require("@/assets/login/June.jpg"),
+      url: "",
       emailinput: "",
       passwordinput: "",
-      value: true,
+      value: true
     };
   },
+  created() {
+    this.ChoosePicture();
+  },
   methods: {
+    ChoosePicture() {
+      let date = new Date();
+      let month = date.getMonth();
+      // month = 0;
+      this.url = "../static/login/" + month + ".jpg";
+      // console.log(this.url);
+    },
     signIn: function() {
       alert("sign In successfully");
     },
-    toRegister:function(){
+    toRegister: function() {
       console.log("to registration");
-      this.$router.push({path:'/registration'});
-      
+      this.$router.push({ path: "/registration" });
     }
   }
 };
 </script>
 <style scoped>
-.createaccounttext, .tosignin {
+.createaccounttext,
+.tosignin {
   text-align: center;
   border-top: 0.5px solid #dcdfe6;
   padding-top: 1%;
 }
-.fristpassword{
-  margin-bottom:5%;
+.fristpassword {
+  margin-bottom: 5%;
 }
 .el-switch {
   display: block;
@@ -175,7 +189,7 @@ export default {
 .labelpassword {
   margin-top: 5%;
 }
-.el-link{
-  text-align:center;
+.el-link {
+  text-align: center;
 }
 </style>

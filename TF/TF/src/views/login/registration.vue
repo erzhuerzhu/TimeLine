@@ -78,14 +78,24 @@ export default {
       // "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
       // 这里就是加载图片，下面是本地加载，上面是用链接
       // url: require("@/assets/login/May.jpg"),
-      url: require("@/assets/login/June.jpg"),
+      url: "",
       emailinput: "",
       passwordinput: "",
       comfirmepassword: "",
       intellgentverify: ""
     };
   },
+  created() {
+    this.ChoosePicture();
+  },
   methods: {
+    ChoosePicture() {
+      let date = new Date();
+      let month = date.getMonth();
+      month = 11;
+      this.url = "../static/login/" + month + ".jpg";
+      // console.log(this.url);
+    },
     signIn: function() {
       alert("sign In successfully");
     },
