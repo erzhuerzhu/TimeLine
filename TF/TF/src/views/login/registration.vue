@@ -92,7 +92,7 @@ export default {
     ChoosePicture() {
       let date = new Date();
       let month = date.getMonth();
-      month = 11;
+      // month = 11;
       this.url = "../static/login/" + month + ".jpg";
       // console.log(this.url);
     },
