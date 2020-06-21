@@ -1,8 +1,9 @@
-package com.yuqipu.TimeLine.domain;
+package com.yuqipu.TimeLine.service.impl.;
 
 public class ResultJson<T> {
     private int code;
     private T data;
+//    data这里如果什么也不设置的话，前端就会得到一个null
     /**
      * 操作成功
      */

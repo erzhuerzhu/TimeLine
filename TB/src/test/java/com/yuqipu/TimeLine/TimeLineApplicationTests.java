@@ -1,10 +1,10 @@
-package com.yuqipu.TimeLife;
+package com.yuqipu.TimeLine;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TimeLifeApplicationTests {
+class TimeLineApplicationTests {
 
 	@Test
 	void contextLoads() {

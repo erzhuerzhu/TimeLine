@@ -1,13 +1,13 @@
-package com.yuqipu.TimeLife;
+package com.yuqipu.TimeLine;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TimeLifeApplication {
+public class TimeLineApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TimeLifeApplication.class, args);
+		SpringApplication.run(TimeLineApplication.class, args);
 	}
 
 }
