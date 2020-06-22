@@ -1,4 +1,4 @@
-package com.yuqipu.TimeLine.service.impl.;
+package com.yuqipu.TimeLine.service.impl;
 
 public class ResultJson<T> {
     private int code;

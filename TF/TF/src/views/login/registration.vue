@@ -1,68 +1,65 @@
 <template>
-  <div class="biggestdiv">
-    <el-image :src="url"></el-image>
-    <div class="login">
-      <el-container>
-        <div class="websitenname">
-          <span>TimeLine</span>
-          <!-- <el-header>TimeLine</el-header> -->
-        </div>
-        <el-main>
-          <div class="emailinput">
-            <div class="labenemail">
-              <el-tag type="info">email</el-tag>
-            </div>
-            <el-input
-              placeholder="请输入邮箱"
-              suffix-icon="el-icon-message"
-              v-model="emailinput"
-            >
-            </el-input>
+  <div class="login">
+    <el-container>
+      <div class="websitenname">
+        <span>TimeLine</span>
+        <!-- <el-header>TimeLine</el-header> -->
+      </div>
+      <el-main>
+        <div class="emailinput">
+          <div class="labenemail">
+            <el-tag type="info">email</el-tag>
           </div>
-          <div class="passwordinput">
-            <div class="labelpassword">
-              <div class="passwordtext">
-                <el-tag type="info">password</el-tag>
-              </div>
-              <!-- <div class="forgetpaswordtext">
+          <el-input
+            placeholder="请输入邮箱"
+            suffix-icon="el-icon-message"
+            v-model="emailinput"
+          >
+          </el-input>
+        </div>
+        <div class="passwordinput">
+          <div class="labelpassword">
+            <div class="passwordtext">
+              <el-tag type="info">password</el-tag>
+            </div>
+            <!-- <div class="forgetpaswordtext">
                   <el-link type="primary">forget password?</el-link>
                 </div> -->
-            </div>
-            <el-input
-              class="fristpassword"
-              placeholder="请输入密码"
-              suffix-icon="el-icon-lock"
-              v-model="passwordinput"
-              show-password
-            >
-            </el-input>
-            <el-input
-              placeholder="确认密码"
-              suffix-icon="el-icon-lock"
-              v-model="comfirmepassword"
-              show-password
-            >
-            </el-input>
           </div>
-          <div class="chooseeare">
-            <el-switch
-              v-model="intellgentverify"
-              active-color="#13ce66"
-              inactive-color="#ccc4cc"
-              active-text="智能验证"
+          <el-input
+            class="fristpassword"
+            placeholder="请输入密码"
+            suffix-icon="el-icon-lock"
+            v-model="passwordinput"
+            show-password
+          >
+          </el-input>
+          <el-input
+            placeholder="确认密码"
+            suffix-icon="el-icon-lock"
+            v-model="comfirmepassword"
+            show-password
+          >
+          </el-input>
+        </div>
+        <div class="chooseeare">
+          <el-switch
+            v-model="intellgentverify"
+            active-color="#13ce66"
+            inactive-color="#ccc4cc"
+            active-text="智能验证"
+          >
+          </el-switch>
+          <!-- <el-button round>sign in </el-button> -->
+          <regis-button msg="sign in" v-on:btnClick="signIn"></regis-button>
+          <div class="tosignin">
+            <el-link type="primary" v-on:click="toLogin"
+              >had an account? here to sign in</el-link
             >
-            </el-switch>
-            <!-- <el-button round>sign in </el-button> -->
-            <regis-button msg="sign in" v-on:btnClick="signIn"></regis-button>
-            <div class="tosignin">
-              <el-link type="primary" v-on:click="toLogin"
-                >had an account? here to sign in</el-link
-              >
-            </div>
           </div>
-        </el-main>
-      </el-container>
-    </div>
+        </div>
+      </el-main>
+    </el-container>
   </div>
 </template>
 <script>
@@ -85,23 +82,13 @@ export default {
       intellgentverify: ""
     };
   },
-  created() {
-    this.ChoosePicture();
-  },
   methods: {
-    ChoosePicture() {
-      let date = new Date();
-      let month = date.getMonth();
-      // month = 11;
-      this.url = "../static/login/" + month + ".jpg";
-      // console.log(this.url);
-    },
     signIn: function() {
       alert("sign In successfully");
     },
 
     toLogin: function() {
-      this.$router.push({ path: "/" });
+      this.$router.push({ path: "/index/login" });
     }
   }
 };
@@ -133,9 +120,6 @@ export default {
   float: right;
   width: 55%;
 }
-.biggestdiv {
-  min-width: 1500px;
-}
 .websitenname {
   text-align: center;
   font-size: 2.5rem;
@@ -155,7 +139,7 @@ export default {
 }
 .el-tag {
   background-color: #ffffff;
-  font-size: 1rem;
+  font-size: 1.22rem;
   color: #ccc4cc;
   border-style: none;
   padding: 0px;
@@ -166,15 +150,8 @@ export default {
   text-align: left;
   /* line-height: 160px; */
   display: table;
-  margin: 0 auto;
+  margin: 0 10%;
   /* transform: translate(0px, 120px); */
-}
-.el-image {
-  width: 45%;
-  height: auto;
-  margin-left: -50px;
-  margin-top: -8px;
-  float: left;
 }
 .el-container {
   border: 1px;
@@ -194,5 +171,10 @@ export default {
 }
 .el-link {
   text-align: center;
+  font-size:16px;
+}
+.el-input{
+  height:50px;
+  
 }
 </style>

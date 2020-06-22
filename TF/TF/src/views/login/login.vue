@@ -1,66 +1,57 @@
 <template>
-  <div>
-    <div class="biggestdiv">
-      <!-- <el-image :src="url"></el-image> -->
-      <el-image v-bind:src="url"></el-image>
-      <div class="login">
-        <el-container>
-          <div class="websitenname">
-            <span>TimeLine</span>
-            <!-- <el-header>TimeLine</el-header> -->
-          </div>
-          <el-main>
-            <div class="emailinput">
-              <div class="labenemail">
-                <el-tag type="info">email</el-tag>
-              </div>
-              <el-input
-                placeholder="请输入邮箱"
-                suffix-icon="el-icon-message"
-                v-model="emailinput"
-              >
-              </el-input>
-            </div>
-            <div class="passwordinput">
-              <div class="labelpassword">
-                <div class="passwordtext">
-                  <el-tag type="info">password</el-tag>
-                </div>
-                <div class="forgetpaswordtext">
-                  <el-link type="primary">forget password?</el-link>
-                </div>
-              </div>
-              <el-input
-                placeholder="请输入密码"
-                suffix-icon="el-icon-lock"
-                v-model="passwordinput"
-                show-password
-              >
-              </el-input>
-            </div>
-            <div class="chooseeare">
-              <el-switch
-                v-model="value"
-                active-color="#13ce66"
-                inactive-color="#ccc4cc"
-                active-text="remember me"
-              >
-              </el-switch>
-              <!-- <el-button round>sign in </el-button> -->
-              <signin-button
-                msg="sign in"
-                v-on:btnClick="signIn"
-              ></signin-button>
-              <div class="createaccounttext">
-                <el-link type="primary" v-on:click="toRegister"
-                  >dont't have a account? create one here</el-link
-                >
-              </div>
-            </div>
-          </el-main>
-        </el-container>
+  <div class="login">
+    <el-container>
+      <div class="websitenname">
+        <span>TimeLine</span>
+        <!-- <el-header>TimeLine</el-header> -->
       </div>
-    </div>
+      <el-main>
+        <div class="emailinput">
+          <div class="labenemail">
+            <el-tag type="info">email</el-tag>
+          </div>
+          <el-input
+            placeholder="请输入邮箱"
+            suffix-icon="el-icon-message"
+            v-model="emailinput"
+          >
+          </el-input>
+        </div>
+        <div class="passwordinput">
+          <div class="labelpassword">
+            <div class="passwordtext">
+              <el-tag type="info">password</el-tag>
+            </div>
+            <div class="forgetpaswordtext">
+              <el-link  type="primary"><span class="forgetpaswordtextlink">forget password?</span></el-link>
+            </div>
+          </div>
+          <el-input
+            placeholder="请输入密码"
+            suffix-icon="el-icon-lock"
+            v-model="passwordinput"
+            show-password
+          >
+          </el-input>
+        </div>
+        <div class="chooseeare">
+          <el-switch
+            v-model="value"
+            active-color="#13ce66"
+            inactive-color="#ccc4cc"
+            active-text="remember me"
+          >
+          </el-switch>
+          <!-- <el-button round>sign in </el-button> -->
+          <signin-button msg="sign in" v-on:btnClick="signIn"></signin-button>
+          <div class="createaccounttext">
+            <el-link type="primary" v-on:click="toRegister"
+              >dont't have a account? create one here</el-link
+            >
+          </div>
+        </div>
+      </el-main>
+    </el-container>
   </div>
 </template>
 <script>
@@ -82,23 +73,13 @@ export default {
       value: true
     };
   },
-  created() {
-    this.ChoosePicture();
-  },
   methods: {
-    ChoosePicture() {
-      let date = new Date();
-      let month = date.getMonth();
-      // month = 0;
-      this.url = "../static/login/" + month + ".jpg";
-      // console.log(this.url);
-    },
     signIn: function() {
       alert("sign In successfully");
     },
     toRegister: function() {
       console.log("to registration");
-      this.$router.push({ path: "/registration" });
+      this.$router.push({ path: "/index/registration" });
     }
   }
 };
@@ -110,28 +91,30 @@ export default {
   border-top: 0.5px solid #dcdfe6;
   padding-top: 1%;
 }
+.forgetpaswordtextlink{
+  font-size:80%;
+}
 .fristpassword {
   margin-bottom: 5%;
 }
 .el-switch {
   display: block;
   margin-top: 5%;
+  font-size:100%;
 }
 .passwordtext {
   float: left;
   text-align: left;
 }
-.forgetpaswordtext {
-  float: right;
-  text-align: right;
-  margin-top: 3%;
-}
 .login {
   float: right;
   width: 55%;
 }
-.biggestdiv {
-  min-width: 1500px;
+.forgetpaswordtext {
+  float: right;
+  text-align: right;
+  margin-top: 3%;
+  font-size:1em;
 }
 .websitenname {
   text-align: center;
@@ -152,7 +135,7 @@ export default {
 }
 .el-tag {
   background-color: #ffffff;
-  font-size: 1rem;
+  font-size: 1.22rem;
   color: #ccc4cc;
   border-style: none;
   padding: 0px;
@@ -163,15 +146,8 @@ export default {
   text-align: left;
   /* line-height: 160px; */
   display: table;
-  margin: 0 auto;
+  margin: 0 10%;
   /* transform: translate(0px, 120px); */
-}
-.el-image {
-  width: 45%;
-  height: auto;
-  margin-left: -50px;
-  margin-top: -8px;
-  float: left;
 }
 .el-container {
   border: 1px;
@@ -191,5 +167,6 @@ export default {
 }
 .el-link {
   text-align: center;
+  font-size:16px;
 }
 </style>

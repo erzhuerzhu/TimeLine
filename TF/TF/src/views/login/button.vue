@@ -21,6 +21,6 @@ export default {
 .el-button {
   display: table;
   margin: 5% auto;
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 </style>
